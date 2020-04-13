@@ -62,6 +62,11 @@ function remove (data){
         console.log("not valid");
 }
 
+function list (){
+    const todoList = readData(filePath);
+    console.log(todoList)
+}
+
 
 
 editInfo = (oldObj, newObj, index) => {
@@ -79,6 +84,7 @@ module.exports = {
     add,
     edit,
     remove,
+    list,
 };
 
 
