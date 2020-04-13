@@ -30,13 +30,14 @@ function add(options){
     todoList.push(data);
 
     writeData(todoList);
+    console.log("todo added successfully")
 }
 function edit (data){
     const todoList = readData(filePath);
     updated = false;
     todoList.forEach((ele, index) => {
         if (ele.id == data.id) {
-            editObject(todoList, data, index);
+            editInfo(todoList, data, index);
             console.log("is updated");
             writeData(todoList);
             updated = true;
@@ -51,6 +52,17 @@ module.exports = {
     add,
     edit,
 };
+editInfo = (oldObj, newObj, index) => {
+    if (newObj.title !== undefined)
+        oldObj[index].title = newObj.title;
+
+    if (newObj.checked !== undefined)
+        oldObj[index].checked = newObj.checked;
+
+    console.log(oldObj);
+    writeData(oldObj);
+};
+
 
 // const todo ={
 //     id=1,
