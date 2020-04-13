@@ -80,22 +80,29 @@ function list (){
 
 function completedTodo (){
     const todoList = readData(filePath);
+    completed=false
     todoList.filter((elem) => {
         if (elem.checked == true) { 
              console.log("sa")      
              console.log(elem)
+             completed=true
         }
     });
+    if (completed==false)
+       console.log("No completed todo")
 }
 
 function uncompletedTodo (){
     const todoList = readData(filePath);
+    uncompleted=false
     todoList.filter((elem) => {
-        if (elem.checked == false) { 
-             console.log("sa")      
+        if (elem.checked == false) {       
              console.log(elem)
+             uncompleted=true
         }
     });
+    if (uncompleted==false)
+       console.log("No uncompleted todo")
 }
 
 
