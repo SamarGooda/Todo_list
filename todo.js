@@ -1,6 +1,6 @@
 // console.log(process.argv)
 
-import { fstat } from "fs";
+// import { fstat } from "fs";
 const fs = require ('fs');
 const functions = require('./functions');
 const filePath = "./todo.json";
