@@ -47,11 +47,23 @@ function edit (data){
         console.log("not valid");
 }
 
+function remove (data){
+    const todoList = readData(filePath);
+    deleted = false;
+    todoList.forEach((ele, index) => {
+        if (ele.id == data.id) {
+            todoList.splice(index,1);
+            console.log("is deleted");
+            writeData(todoList);
+            deleted = true;
+        }
+    });
+    if (!deleted)
+        console.log("not valid");
+}
 
-module.exports = {
-    add,
-    edit,
-};
+
+
 editInfo = (oldObj, newObj, index) => {
     if (newObj.title !== undefined)
         oldObj[index].title = newObj.title;
@@ -61,6 +73,12 @@ editInfo = (oldObj, newObj, index) => {
 
     console.log(oldObj);
     writeData(oldObj);
+};
+
+module.exports = {
+    add,
+    edit,
+    remove,
 };
 
 
