@@ -47,6 +47,17 @@ function edit (data){
         console.log("not valid");
 }
 
+editInfo = (oldObj, newObj, index) => {
+    if (newObj.title !== undefined)
+        oldObj[index].title = newObj.title;
+
+    if (newObj.checked !== undefined)
+        oldObj[index].checked = newObj.checked;
+
+    console.log(oldObj);
+    writeData(oldObj);
+};
+
 function remove (data){
     const todoList = readData(filePath);
     deleted = false;
@@ -67,24 +78,36 @@ function list (){
     console.log(todoList)
 }
 
+function completedTodo (){
+    const todoList = readData(filePath);
+    todoList.filter((elem) => {
+        if (elem.checked == true) { 
+             console.log("sa")      
+             console.log(elem)
+        }
+    });
+}
+
+function uncompletedTodo (){
+    const todoList = readData(filePath);
+    todoList.filter((elem) => {
+        if (elem.checked == false) { 
+             console.log("sa")      
+             console.log(elem)
+        }
+    });
+}
 
 
-editInfo = (oldObj, newObj, index) => {
-    if (newObj.title !== undefined)
-        oldObj[index].title = newObj.title;
-
-    if (newObj.checked !== undefined)
-        oldObj[index].checked = newObj.checked;
-
-    console.log(oldObj);
-    writeData(oldObj);
-};
 
 module.exports = {
     add,
     edit,
     remove,
     list,
+    completedTodo,
+    uncompletedTodo,
+
 };
 
 

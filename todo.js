@@ -50,12 +50,12 @@ function main (cmdArgs){
             functions.list();
             return;
     
-        case 'list_checked':
-            functions.checkedTodo();
+        case 'list_completed':
+            functions.completedTodo();
             return;
     
-        case 'list-unchecked':
-            functions.uncheckedTodo();
+        case 'list_uncompleted':
+            functions.uncompletedTodo();
             return;
     
         default:
